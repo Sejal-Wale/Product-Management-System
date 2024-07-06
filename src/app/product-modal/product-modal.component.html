@@ -1,0 +1,47 @@
+
+ <div *ngIf="product">
+  <h2>{{ product.id ? 'Edit Product' : 'Add Product' }}</h2>
+</div>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <label for="name">Product Name</label>
+  <input id="name" formControlName="name" type="text" required>
+
+  <label for="description">Description</label>
+  <input id="description" formControlName="description" type="text">
+
+  <label for="price">Price</label>
+  <input id="price" formControlName="price" type="number" required>
+
+  <label for="categories">Categories</label>
+  <select id="categories" formControlName="categories" multiple>
+    <option *ngFor="let category of ['Electronics', 'Clothing', 'Books', 'Home & Kitchen', 'Sports & Outdoors', 'Health & Personal Care', 'Toys & Games', 'Automotive', 'Beauty & Grooming', 'Office Supplies']" [value]="category">
+      {{ category }}
+    </option>
+  </select>
+
+  <div formArrayName="attributes">
+    <div *ngFor="let attribute of attributes.controls; let i = index" [formGroupName]="i">
+      <label for="key-{{i}}">Key</label>
+      <input id="key-{{i}}" formControlName="key" type="text">
+
+      <label for="value-{{i}}">Value</label>
+      <input id="value-{{i}}" formControlName="value" type="text">
+
+      <button type="button" (click)="removeAttribute(i)">Remove</button>
+    </div>
+  </div>
+  <button type="button" (click)="addAttribute()">Add Attribute</button>
+
+  <div formGroupName="availability">
+    <label for="inStock">In Stock</label>
+    <input id="inStock" formControlName="inStock" type="checkbox">
+
+    <label for="quantity">Quantity</label>
+    <input id="quantity" formControlName="quantity" type="number" required>
+  </div>
+
+  <button type="submit">{{ product ? 'Update Product' : 'Create Product' }}</button>
+  <button type="button" (click)="close.emit(false)">Cancel</button>
+  
+  
+</form>

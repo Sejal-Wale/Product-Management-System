@@ -1,0 +1,40 @@
+<div>
+    <h2>Product List</h2>
+    <button (click)="editProduct(null)">Add New Product</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Availability</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.categories.join(', ') }}</td>
+          <td>{{ product.availability.inStock ? 'In Stock' : 'Out of Stock' }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.availability.quantity }}</td>
+          <td>
+            <button (click)="editProduct(product)">Edit</button>
+            <button (click)="deleteProduct(product)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="showModal">
+    <app-product-modal [product]="selectedProduct" (close)="closeModal($event)"></app-product-modal>
+  </div>
+  
+  <div *ngIf="showDeleteConfirmation">
+    <app-delete-confirmation (confirmDelete)="confirmDelete()" (cancelDelete)="closeDeleteConfirmation()"></app-delete-confirmation>
+  </div>
+  

@@ -1,0 +1,110 @@
+div {
+    padding: 20px;
+  }
+   form {
+    display: flex;
+    flex-direction: column;
+    margin-left:20% ;
+  }
+  
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+    input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 50%;
+    padding: 8px;
+    margin: 4px 0 12px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; 
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    width: 50%;
+
+  }
+  
+  button[type="button"] {
+    background-color: #2B9BFF;
+    width: 50%;
+
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    width: 50%;
+
+  }
+    div[formArrayName="attributes"] {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 50%;
+
+  }
+    div[formArrayName="attributes"] > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+  }
+  
+  div[formArrayName="attributes"] > div label {
+    margin-right: 10px;
+    
+  }
+  
+  div[formArrayName="attributes"] > div input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  div[formArrayName="attributes"] > div button {
+    background-color:4CAF50;
+  }
+    div[formGroupName="availability"] {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 50%;
+
+  }
+    div[formGroupName="availability"] label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+    
+  }
+  
